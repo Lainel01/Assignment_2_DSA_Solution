@@ -1,0 +1,35 @@
+The Master Theorem applies to recurrences of the following form:
+T (n) = aT (n/b) + f(n)
+where a ≥ 1 and b > 1 are constants and f(n) is an asymptotically positive function.
+
+There are three cases of Master's Theorem:
+CASE 1 - if f(n)=O(n^log_b(a−ϵ)) for some constant ϵ>0, then T(n)=Θ(n^log_b(a))
+CASE 2 - if f(n)=Θ(n^log_b(a)), then T(n)=Θ(n^log_b(a) logn)
+CASE 3 - if f(n)=Ω(n^log_b(a+ϵ)) for some ϵ>0, and if af(n/b) ≤ cf(n) for some c<1 and all sufficiently large n, then T(n)=Θ(f(n)).
+
+Finding the time complexity of the below functions in Θ form.
+
+a). T (n) = 3T (n/2) + n
+= Here, a = 3, b = 2, and f(n) = n
+Now, n^logb (a) = n log_2(3)
+So, c = log_b(a) = log_2(3), which is greater than 1.
+Therefore applying case 1
+	T (n) = Θ(n^log_2(3))
+
+b). T (n) = 64T (n/8) − n^2(log n)
+ = NA (cannot be solved using Master's Theorem because f(n) is negative)
+
+c). T (n) = 2^n T (n/2) + n^n 
+= NA (cannot be solved using Master's Theorem because 'a' is not constant)
+
+d). T (n) = 3T (n/3) + n/2
+=  Here, a = 3, b = 3 and f(n) = n/2 = n(1/2) = n
+Now, n^log_b(a) = n^log_3(3) = f(n)
+Therefore, applying case 2 of Master's Theorem
+T (n) = Θ(n log n)
+
+e). T (n) = 7T (n/3) + n^2
+= Here, a = 7, b = 3 and f(n) = n^2
+Now, n^log_b(a) = n^log_7(3) ≈ 0.56 < 1
+Therefore,
+T (n) = Θ(n^2 ) (Case 3)
